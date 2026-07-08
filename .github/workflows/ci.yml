@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: official-plugins
+    steps:
+      - name: Checkout official-plugins
+        uses: actions/checkout@v4
+        with:
+          path: official-plugins
+
+      - name: Checkout cradle-app plugin-sdk
+        uses: actions/checkout@v4
+        with:
+          repository: cradle/cradle-app
+          path: cradle-app
+          sparse-checkout: |
+            packages/plugin-sdk
+            package.json
+            pnpm-lock.yaml
+            pnpm-workspace.yaml
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.2.2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: official-plugins/pnpm-lock.yaml
+
+      - name: Build plugin-sdk
+        working-directory: cradle-app/packages/plugin-sdk
+        run: |
+          npm install -g pnpm@11.2.2
+          pnpm install --filter @cradle/plugin-sdk...
+          pnpm build
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Build
+        run: pnpm build
+
+      - name: Test
+        run: pnpm test

@@ -1,0 +1,23 @@
+{
+  "name": "@cradle/official-plugins",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@11.2.2",
+  "description": "Official Cradle plugin packages distributed outside cradle-app.",
+  "scripts": {
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "clean": "pnpm -r exec rm -rf dist"
+  },
+  "devDependencies": {
+    "@cradle/plugin-sdk": "file:../cradle-app/packages/plugin-sdk",
+    "@types/node": "^22.19.1",
+    "@types/react": "^19.2.1",
+    "@types/react-dom": "^19.2.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4"
+  }
+}

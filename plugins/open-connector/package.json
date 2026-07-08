@@ -1,0 +1,73 @@
+{
+  "name": "@cradleapp/open-connector",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Official OpenConnector MCP adapter for Cradle.",
+  "cradle": {
+    "apiVersion": "1",
+    "displayName": "OpenConnector",
+    "description": "Connect Cradle agents to an OpenConnector runtime via MCP.",
+    "server": "dist/server.mjs",
+    "web": "dist/web.mjs",
+    "contributes": {
+      "capabilities": [
+        {
+          "id": "route.status",
+          "type": "server-route",
+          "layer": "server",
+          "label": "OpenConnector status",
+          "permissions": ["openconnector.network"]
+        },
+        {
+          "id": "route.config",
+          "type": "server-route",
+          "layer": "server",
+          "label": "OpenConnector config",
+          "permissions": []
+        },
+        {
+          "id": "panel.config",
+          "type": "web-panel",
+          "layer": "web",
+          "label": "OpenConnector Settings",
+          "description": "Connection settings for the OpenConnector MCP adapter.",
+          "permissions": []
+        },
+        {
+          "id": "mcp.open-connector",
+          "type": "mcp-server",
+          "layer": "server",
+          "label": "OpenConnector MCP server",
+          "permissions": ["openconnector.network"]
+        }
+      ],
+      "permissions": [
+        {
+          "id": "openconnector.network",
+          "label": "Connect to OpenConnector runtime",
+          "required": true
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@cradle/plugin-sdk": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}
