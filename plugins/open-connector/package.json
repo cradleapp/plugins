@@ -10,6 +10,10 @@
     "description": "Connect Cradle agents to an OpenConnector runtime via MCP.",
     "server": "dist/server.mjs",
     "web": "dist/web.mjs",
+    "dev": {
+      "server": "src/server.ts",
+      "web": "src/web.tsx"
+    },
     "contributes": {
       "capabilities": [
         {
@@ -52,6 +56,7 @@
     }
   },
   "scripts": {
+    "dev": "cradle plugin dev",
     "build": "tsup",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"

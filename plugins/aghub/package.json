@@ -1,0 +1,60 @@
+{
+  "name": "@cradleapp/aghub",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Mirror AGHub inference providers into Cradle.",
+  "cradle": {
+    "dev": {
+      "server": "src/server.ts"
+    },
+    "apiVersion": "1",
+    "displayName": "AGHub",
+    "description": "Use the model providers you manage in AGHub from Cradle.",
+    "icon": "assets/icon.png",
+    "server": "dist/server.mjs",
+    "deployments": ["desktop"],
+    "contributes": {
+      "capabilities": [
+        {
+          "id": "external-provider-source.aghub",
+          "type": "external-provider-source",
+          "layer": "server",
+          "label": "AGHub model providers",
+          "description": "Mirrors AGHub inference providers as Cradle external providers.",
+          "permissions": ["filesystem.aghub.read", "network.aghub-api"]
+        }
+      ],
+      "permissions": [
+        {
+          "id": "filesystem.aghub.read",
+          "label": "Read AGHub provider metadata",
+          "description": "Reads AGHub's local inference-provider database without changing it.",
+          "required": true
+        },
+        {
+          "id": "network.aghub-api",
+          "label": "Connect to a configured local AGHub API",
+          "description": "Optionally reads API keys through an AGHub API endpoint you explicitly configure.",
+          "required": false
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.10.1",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@cradle/plugin-sdk": "catalog:",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

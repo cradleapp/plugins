@@ -12,6 +12,7 @@
     "clean": "pnpm -r exec rm -rf dist"
   },
   "devDependencies": {
+    "@cradle/cli": "file:../cradle-app/packages/cli",
     "@cradle/plugin-sdk": "file:../cradle-app/packages/plugin-sdk",
     "@types/node": "^22.19.1",
     "@types/react": "^19.2.1",

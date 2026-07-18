@@ -1,6 +1,7 @@
 {
   "files": [],
   "references": [
-    { "path": "./plugins/open-connector" }
+    { "path": "./plugins/open-connector" },
+    { "path": "./plugins/aghub" }
   ]
 }

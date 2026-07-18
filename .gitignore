@@ -1,4 +1,5 @@
 node_modules
+.cradle/
 dist
 .DS_Store
 *.log

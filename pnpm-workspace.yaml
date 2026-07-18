@@ -2,6 +2,7 @@ packages:
   - plugins/*
 
 overrides:
+  '@cradle/cli': 'file:../cradle-app/packages/cli'
   '@cradle/plugin-sdk': 'file:../cradle-app/packages/plugin-sdk'
 
 onlyBuiltDependencies:
@@ -20,4 +21,5 @@ catalog:
   zod: '^4.4.3'
 
 allowBuilds:
+  better-sqlite3: true
   esbuild: true
