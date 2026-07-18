@@ -2,6 +2,7 @@
   "files": [],
   "references": [
     { "path": "./plugins/open-connector" },
-    { "path": "./plugins/aghub" }
+    { "path": "./plugins/aghub" },
+    { "path": "./plugins/cli-proxy-api" }
   ]
 }
