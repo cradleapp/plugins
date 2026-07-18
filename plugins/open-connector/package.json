@@ -21,7 +21,9 @@
           "type": "server-route",
           "layer": "server",
           "label": "OpenConnector status",
-          "permissions": ["openconnector.network"]
+          "permissions": [
+            "openconnector.network"
+          ]
         },
         {
           "id": "route.config",
@@ -43,7 +45,9 @@
           "type": "mcp-server",
           "layer": "server",
           "label": "OpenConnector MCP server",
-          "permissions": ["openconnector.network"]
+          "permissions": [
+            "openconnector.network"
+          ]
         }
       ],
       "permissions": [
@@ -57,7 +61,7 @@
   },
   "scripts": {
     "dev": "cradle plugin dev",
-    "build": "tsup",
+    "build": "tsdown",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
@@ -71,8 +75,8 @@
     "@types/react-dom": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "tsup": "catalog:",
     "typescript": "catalog:",
-    "vitest": "catalog:"
+    "vitest": "catalog:",
+    "tsdown": "catalog:"
   }
 }

@@ -13,7 +13,9 @@
       "server": "src/server.ts",
       "web": "src/web.tsx"
     },
-    "deployments": ["desktop"],
+    "deployments": [
+      "desktop"
+    ],
     "contributes": {
       "capabilities": [
         {
@@ -21,63 +23,86 @@
           "type": "managed-resource",
           "layer": "server",
           "label": "CLIProxyAPI runtime",
-          "permissions": ["filesystem.plugin-data", "network.github"]
+          "permissions": [
+            "filesystem.plugin-data",
+            "network.github"
+          ]
         },
         {
           "id": "process.sidecar",
           "type": "managed-process",
           "layer": "server",
           "label": "CLIProxyAPI sidecar",
-          "permissions": ["process.sidecar", "filesystem.plugin-data"]
+          "permissions": [
+            "process.sidecar",
+            "filesystem.plugin-data"
+          ]
         },
         {
           "id": "lifecycle.uninstall",
           "type": "lifecycle-uninstall",
           "layer": "server",
           "label": "CLIProxyAPI uninstall cleanup",
-          "permissions": ["filesystem.plugin-data", "process.sidecar"]
+          "permissions": [
+            "filesystem.plugin-data",
+            "process.sidecar"
+          ]
         },
         {
           "id": "external-provider-source.cli-proxy-api",
           "type": "external-provider-source",
           "layer": "server",
           "label": "CLIProxyAPI provider source",
-          "permissions": ["network.loopback"]
+          "permissions": [
+            "network.loopback"
+          ]
         },
         {
           "id": "route.status",
           "type": "server-route",
           "layer": "server",
           "label": "CLIProxyAPI status",
-          "permissions": ["network.loopback"]
+          "permissions": [
+            "network.loopback"
+          ]
         },
         {
           "id": "route.start",
           "type": "server-route",
           "layer": "server",
           "label": "Start CLIProxyAPI",
-          "permissions": ["network.loopback", "process.sidecar"]
+          "permissions": [
+            "network.loopback",
+            "process.sidecar"
+          ]
         },
         {
           "id": "route.stop",
           "type": "server-route",
           "layer": "server",
           "label": "Stop CLIProxyAPI",
-          "permissions": ["process.sidecar"]
+          "permissions": [
+            "process.sidecar"
+          ]
         },
         {
           "id": "route.config",
           "type": "server-route",
           "layer": "server",
           "label": "Configure CLIProxyAPI",
-          "permissions": ["filesystem.plugin-data"]
+          "permissions": [
+            "filesystem.plugin-data"
+          ]
         },
         {
           "id": "route.auth.:provider",
           "type": "server-route",
           "layer": "server",
           "label": "Authenticate a CLIProxyAPI account",
-          "permissions": ["process.sidecar", "filesystem.plugin-data"]
+          "permissions": [
+            "process.sidecar",
+            "filesystem.plugin-data"
+          ]
         },
         {
           "id": "panel.cli-proxy-api",
@@ -113,7 +138,7 @@
   },
   "scripts": {
     "dev": "cradle plugin dev",
-    "build": "tsup",
+    "build": "tsdown",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
@@ -129,8 +154,8 @@
     "@types/react": "^19.2.14",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "tsup": "catalog:",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.4"
+    "vitest": "^4.1.4",
+    "tsdown": "catalog:"
   }
 }

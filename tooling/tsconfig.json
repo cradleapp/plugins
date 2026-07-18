@@ -6,5 +6,5 @@
     "outDir": "dist",
     "noEmit": true
   },
-  "include": ["create-plugin-tsup-config.ts", "tsup.config.ts"]
+  "include": ["create-plugin-tsdown-config.ts", "tsdown.config.ts"]
 }
