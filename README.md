@@ -1,13 +1,10 @@
 # Cradle Official Plugins
 
-Independent distribution repo for Cradle-maintained plugins that live outside `cradle-app`.
-
-## Packages
-
 | Package | Description |
 |---------|-------------|
 | `@cradleapp/open-connector` | Cradle Plugin for [OpenConnector](https://github.com/oomol-lab/open-connector) |
 | `@cradleapp/aghub` | Mirrors [AGHub](https://github.com/akarachen/aghub) inference providers into Cradle |
+| `@cradleapp/cliproxyapi` | Cradle Plugin for [CliProxyAPI](https://github.com/router-for-me/CLIProxyAPI) |
 
 ## Development
 
