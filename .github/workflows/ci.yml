@@ -17,16 +17,19 @@ jobs:
         with:
           path: official-plugins
 
-      - name: Checkout cradle-app plugin-sdk
+      - name: Checkout cradle-app packages
         uses: actions/checkout@v4
         with:
-          repository: cradle/cradle-app
+          repository: wibus-wee/cradle-app
           path: cradle-app
           sparse-checkout: |
             packages/plugin-sdk
+            packages/cli
             package.json
             pnpm-lock.yaml
             pnpm-workspace.yaml
+            patches
+            tsconfig.json
 
       - uses: pnpm/action-setup@v4
         with:
@@ -34,16 +37,16 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          # tsdown requires Node.js ^22.18.0 || >=24.11.0
+          node-version: 24
           cache: pnpm
           cache-dependency-path: official-plugins/pnpm-lock.yaml
 
       - name: Build plugin-sdk
-        working-directory: cradle-app/packages/plugin-sdk
+        working-directory: cradle-app
         run: |
-          npm install -g pnpm@11.2.2
-          pnpm install --filter @cradle/plugin-sdk...
-          pnpm build
+          pnpm install --filter @cradle/plugin-sdk... --ignore-scripts --frozen-lockfile
+          pnpm --filter @cradle/plugin-sdk build
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

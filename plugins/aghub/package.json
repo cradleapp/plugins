@@ -12,7 +12,9 @@
     "description": "Use the model providers you manage in AGHub from Cradle.",
     "icon": "assets/icon.png",
     "server": "dist/server.mjs",
-    "deployments": ["desktop"],
+    "deployments": [
+      "desktop"
+    ],
     "contributes": {
       "capabilities": [
         {
@@ -21,7 +23,10 @@
           "layer": "server",
           "label": "AGHub model providers",
           "description": "Mirrors AGHub inference providers as Cradle external providers.",
-          "permissions": ["filesystem.aghub.read", "network.aghub-api"]
+          "permissions": [
+            "filesystem.aghub.read",
+            "network.aghub-api"
+          ]
         }
       ],
       "permissions": [
@@ -41,7 +46,7 @@
     }
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsdown",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
@@ -53,8 +58,8 @@
     "@cradle/plugin-sdk": "catalog:",
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "catalog:",
-    "tsup": "catalog:",
     "typescript": "catalog:",
-    "vitest": "catalog:"
+    "vitest": "catalog:",
+    "tsdown": "catalog:"
   }
 }
